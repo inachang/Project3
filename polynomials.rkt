@@ -1,5 +1,7 @@
 #lang racket
 ;Yiana Chang and Shant Hairapetian
+;March 17, 2015
+;COMP333 Project 3 - Polynomials
 
 (define coeff (lambda (t)
                 (car t)))
