@@ -28,7 +28,6 @@
 
 (define printpoly (lambda (p)
                     (cond
-                      ((null? p) p)
                       ((= (length p) 1)
                        (printTerm (car p)))
                       (else 
