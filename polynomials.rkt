@@ -20,7 +20,7 @@
                               ((= c -1) (display "-"))
                               (else (display c)))
                             (cond
-                              ((= e 0) (newline))
+                              ((= e 0) (display ""))
                               ((= e 1) (display "x"))
                               (else
                                (display "x^")
