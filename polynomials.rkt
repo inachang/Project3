@@ -10,7 +10,7 @@
                 (last t)))
 
 (define printTerm (lambda (t)
-                    (if (= (coeff t) 0) (void) 
+                    (if (= (coeff t) 0) (display "0") 
                         (begin
                           (let*
                               ([c (coeff t)]
