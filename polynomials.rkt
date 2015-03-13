@@ -94,3 +94,7 @@
 (define multiplyterms (lambda (t1 t2)
   (list (* (coeff t1)(coeff t2)) (+ (expon t1)(expon t2)))
 ))
+
+(define multiplytermpoly (lambda (t1 p1)
+  (simplify (map (lambda (x) (multiplyterms t1 x)) p1))
+))
