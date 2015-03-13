@@ -55,3 +55,33 @@
 (define EQExp? (lambda (t1 t2)
                  (if (= (expon t1) (expon t2)) #t #f)))
 
+
+
+(define addTerm (lambda (t1 t2)
+                  (list (+ (coeff t1) (coeff t2)) (expon t1)))) 
+
+
+(define simplify (lambda (p)
+  (simplifyRec (sort p GT))
+))
+
+(define simplifyRec (lambda (p)
+  (if (<= (length p) 1) (list (car p))
+     (let*(
+       [t1 (car p)]
+       [t2 (cadr p)]
+      )
+      (if (EQExp? t1 t2 )
+       (if (> (length(cddr p)) 0)
+        (simplifyRec (append (list (addTerm t1 t2)) (cddr p)))
+        (append (list (addTerm t1 t2)))
+       )
+       (append (list (car p)) (simplifyRec (cdr p)))
+      )
+     ) 
+  )
+))
+
+(define addpoly (lambda (p1 p2)
+ (simplify (append p1 p2))
+))
