@@ -98,3 +98,17 @@
 (define multiplytermpoly (lambda (t1 p1)
   (simplify (map (lambda (x) (multiplyterms t1 x)) p1))
 ))
+
+(define multiplypolyRec (lambda (p1 p2 acc)
+  (if  (= (length p1) 0)
+    acc
+    (multiplypolyRec (cdr p1) p2 (append acc (multiplytermpoly (car p1) p2)))
+  )
+))
+
+(define multiplypoly (lambda (p1 p2)
+  (let* ([acc '()])
+   (simplify (multiplypolyRec p1 p2 acc))
+  )
+  
+))
