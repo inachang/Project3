@@ -85,3 +85,12 @@
 (define addpoly (lambda (p1 p2)
  (simplify (append p1 p2))
 ))
+
+
+(define subtractpoly (lambda (p1 p2)
+ (simplify (append p1 (map (lambda (x) (list (* (car x) -1) (cadr x))) p2)))
+))
+
+(define multiplyterms (lambda (t1 t2)
+  (list (* (coeff t1)(coeff t2)) (+ (expon t1)(expon t2)))
+))
