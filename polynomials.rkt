@@ -23,7 +23,8 @@
                               ((= c -1) (display "-"))
                               (else (display c)))
                             (cond
-                              ((= e 0) (display ""))
+                              ((= e 0) 
+                               (if (or (= c 1) (= c -1)) (display "1") (display "")))
                               ((= e 1) (display "x"))
                               (else
                                (display "x^")
